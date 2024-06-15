@@ -1,0 +1,9 @@
+<div class="container">
+  @if (budget.id) {
+  <h2 class="display-2 my-3">Edit an budget</h2>
+  } @else {
+  <h2 class="display-2 my-3">New budget</h2>
+  }
+
+  <app-budget-form [budget]="budget" (save)="handleSave($event)"></app-budget-form>
+</div>

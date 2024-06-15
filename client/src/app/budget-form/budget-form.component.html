@@ -1,0 +1,45 @@
+
+<form [formGroup]="budgetForm" (submit)="handleSubmit()" action="" novalidate>
+  <div class="form-group">
+    <label for="title">Title</label>
+    <input
+      formControlName="title"
+      [class.is-valid]="title?.valid"
+      [class.is-invalid]="title?.invalid && (title?.dirty || title?.touched)"
+      type="text"
+      class="form-control"
+      id="title"
+      placeholder="Title"
+      required
+    />
+    <div class="invalid-feedback">Please provide a title!</div>
+  </div>
+  <div class="form-group">
+    <label for="category">Category</label>
+    <textarea
+      formControlName="category"
+      [class.is-valid]="category?.valid"
+      [class.is-invalid]="category?.invalid && (category?.dirty || category?.touched)"
+      class="form-control"
+      id="category"
+      rows="5"
+      required
+    ></textarea>
+    <div class="invalid-feedback">Please provide a category!</div>
+  </div>
+  <div class="form-group">
+    <label for="amount">Amount</label>
+    <input
+      formControlName="amount"
+      [class.is-valid]="amount?.valid"
+      [class.is-invalid]="amount?.invalid && (amount?.dirty || amount?.touched)"
+      type="number"
+      class="form-control"
+      id="amount"
+      required
+    />
+    <div class="invalid-feedback">Please provide a amount!</div>
+  </div>
+
+  <button [disabled]="budgetForm.invalid" type="submit" class="btn btn-primary">Submit</button>
+</form>

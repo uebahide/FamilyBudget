@@ -1,0 +1,29 @@
+
+<!-- Listing page -->
+<div class="container">
+  <h2 class="display-2 my-3">Budget list</h2>
+  <p><a class="btn btn-primary" routerLink="/budget/new" role="button">New budget</a></p>
+
+  <div class="row">
+    <div class="col">
+
+      <div class="list-group">
+        @for (budget of budgets; track budget.id) {
+        <a
+          class="list-group-item list-group-item-action"
+          [routerLink]="['/budget', budget.id, 'edit']"
+        >
+          <!-- (click)="selectedIssue = issue" -->
+          <div class="d-flex w-100 justify-content-between align-items-center">
+            <h5 class="mb-1">{{ budget.title }}</h5>
+          </div>
+          <p class="mb-1">{{ budget.category }}</p>
+          <small>
+            <span class="">${{ budget.amount }}</span>
+          </small>
+        </a>
+        }
+      </div>
+    </div>
+  </div>
+</div>
